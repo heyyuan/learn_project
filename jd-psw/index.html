@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东登录</title>
+    <style>
+        .header {
+            font-size: 15px;
+            text-align: center;
+        }
+        .input-box {
+            margin: 0 auto;
+            width: 800px;
+            height: 400px;
+        }
+        #account {
+            position: relative;
+            margin: 10px auto;
+            width: 600px;
+            height: 50px;
+            border-bottom: 1px #ccc solid;
+        }
+        #account input {
+            margin-top: 15px;
+            width: 500px;
+            height: 30px;
+            outline: none;
+            border: none;
+        }
+        #account img {
+            position: absolute;
+            top: 20px;
+            right: 2px;
+        }
+        #psw {
+            position: relative;
+            margin: 0 auto;
+            width: 600px;
+            height: 50px;
+            border-bottom: 1px #ccc solid;
+        }
+        #psw input {
+            margin-top: 15px;
+            width: 530px;
+            height: 25px;
+            border-width: 0 1px 0 0;
+            border-color: #ccc;
+            outline: none;
+        }
+        #psw img {
+            position: absolute;
+            top: 17px;
+            right: 70px;
+            width: 20px;
+            height: 20px;
+        }
+        #psw a {
+            padding: 3px;
+            width: 30px;
+            text-decoration: none;
+            font: 13px Arial, sans-serif;
+            color: #1e1e1e;
+        }
+        #login {
+            margin: 25px auto 0;
+            width: 600px;
+            height: 40px;
+        }
+        #login input {
+            margin: 0 auto;
+            width: 600px;
+            height: 40px;
+            background-color: #ffbdb8;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            color: #fff;
+            letter-spacing: 5px;
+        }
+        #login input:hover {
+            background-color: #E9686B;
+        }
+        .others {
+            width: 600px;
+            margin: 20px auto;
+        }
+        #others-lft {
+            width: 300px;
+            float: left;
+        }
+        #others-rgt {
+            width: 300px;
+            float: right;
+        }
+        .others a {
+            text-decoration: none;
+            font: 13px Arial, sans-serif;
+            color: #757575;
+        }
+        #register{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!--页面头部-->
+    <div class="header">京东登录</div>
+    <!--输入部分-->
+    <div class="input-box">
+        <!--账号输入-->
+        <div id="account">
+            <input type="text" value="" id="accin" placeholder="用户名/邮箱/已验证手机">
+            <img src="cancel.png" id="quit">
+        </div>
+        <!--密码输入-->
+        <div id="psw">
+            <input type="password" placeholder="请输入密码" id="pswinput">
+            <img src="close.png" id="eye">
+            <a href="http://www.baidu.com/">忘记密码</a>
+        </div>
+        <!--登录部分-->
+        <div id="login">
+            <input type="submit" value="登录">
+        </div>
+        <!--其他登录方式-->
+        <div class="others">
+            <div id="others-lft">
+                <a href="http://www.baidu.com/">短信验证码登录</a>
+            </div>
+            <div id="others-rgt">
+                <a href="http://www.baidu.com/" id="register">手机快速注册</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        //获取元素 1.叉叉图片 2.账号输入框
+        var cancel = document.getElementById('quit');
+        var x = document.getElementById('accin');
+        //注册事件 处理程序 ——点击×清除已输入内容
+        cancel.onclick = function(){
+            x.value = '';
+        }
+
+        //获取元素 1.眼睛图片 2.密码输入框
+        var pswinput = document.getElementById('pswinput');
+        var eye = document.getElementById('eye');
+        //注册事件 处理程序 ——点击眼睛图片实现显示或隐藏密码，同时图片更改
+        var flag = 0;
+        eye.onclick = function(){
+            if(flag == 0){
+                pswinput.type = 'text';
+                eye.src = 'open.png';
+                flag = 1 ;
+            }
+            else if(flag == 1 ){
+                pswinput.type = 'password';
+                eye.src = 'close.png';
+                flag = 0 ;
+            }
+        }
+    </script>
+</body>
+</html>
