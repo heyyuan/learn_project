@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气查询</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div class="wrap" id="app">
+        <div class="header">
+            <img src="weather.png" title="天气预报">
+        </div>
+        <div class="search">
+            <input type="text" class="input-txt" v-model="city" @keyup.enter="searchWeather" placeholder="请输入查询的城市">
+            <button class="input-sub" @click="searchWeather">
+                搜 索
+            </button>         
+        </div>
+        <div class="hotkey">
+            <a href="javascript:;" @click="changeCity('北京')">北京</a>
+            <a href="javascript:;" @click="changeCity('上海')">上海</a>
+            <a href="javascript:;" @click="changeCity('广州')">广州</a>
+            <a href="javascript:;" @click="changeCity('深圳')">深圳</a>
+        </div>
+            <ul class="weather-list">
+                <li v-for="item in weatherList">
+                    <div class="info-type"><span class="iconfont">{{ item.type }}</span></div>
+                    <div class="info-temp"> 
+                        <b>{{ item.low }}</b>
+                        ~
+                        <b>{{ item.high }}</b>
+                    </div>
+                    <div class="info-date"><span>{{ item.date }}</span></div>
+                </li>
+            </ul>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

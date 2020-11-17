@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+}
+
+.header img {
+    padding-left: 25px;
+    padding-top: 50px;
+    width: 150px;
+    height: 150px;
+}
+
+.search {
+    margin: 0 auto;
+    width: 640px;
+    height: 40px;
+}
+
+.input-txt {
+    float: left;
+    width: 538px;
+    height: 38px;
+    border: 1px solid #41a1cb;
+    outline: none;
+    text-indent: 10px;
+}
+
+.input-sub {
+    float: left;
+    width: 100px;
+    height: 40px;
+    background-color: #41a1cb;
+    border: 0px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+}
+
+.hotkey {
+    margin: 10px auto;
+    width: 640px;
+}
+
+.hotkey a {
+    text-decoration: none;
+    color: #666;
+    font-size: 15px;
+    padding-right: 15px;
+}
+
+
+.weather-list {
+    text-align: center;
+    margin: 50px auto;
+    list-style-type: none;
+    display: block;
+}
+
+.weather-list li {
+    display: inline-block;
+    width: 140px;
+    height: 200px;
+    padding: 0 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.info-type {
+    width: 140px;
+    height: 50px;
+}
+
+.iconfont {
+    font: 30px 'Microsoft YaHei';
+    color: #fda252;
+    margin-top: 25px;
+}
+
+.info-temp {
+    font: 13px 'Microsoft YaHei';
+    color: #fda252;
+}
+
+.info-date {
+    width: 140px;
+    height: 80px;
+    font: 14px 'Microsoft YaHei';
+    color: #999999;
+    padding-top: 20px;
+}
