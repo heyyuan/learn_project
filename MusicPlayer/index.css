@@ -1,0 +1,309 @@
+/* 初始化设置 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(images/bg.jpg);
+}
+
+.play_wrap {
+    position: fixed;
+    width: 800px;
+    height: 544px;
+    left: 50%;
+    top: 50%;
+    margin-left: -400px;
+    margin-top: -272px;
+}
+
+.search_bar {
+    position: relative;
+    height: 60px;
+    background-color: #1eacda;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    z-index: 11;
+}
+
+.search_bar img {
+    width: 35px;
+    height: 35px;
+    margin-left: 23px;
+    margin-top: 14px;
+}
+
+.search_bar input {
+    position: absolute;
+    top: 15px;
+    right: 23px;
+    width: 296px;
+    height: 34px;
+    background: url(images/zoom.png) 265px center no-repeat
+    rgba(255, 255, 255, 0.45);
+    border-radius: 17px;
+    border: 0px;
+    outline: none;
+    text-indent: 15px;
+}
+
+.center_con {
+    height: 435px;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    display: flex;
+}
+
+.song_wrapper {
+    width: 200px;
+    height: 435px;
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    list-style: none;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+.song_list {
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* chrome safari */
+.song_list::-webkit-scrollbar {
+    display: none;
+}
+
+.song_list li {
+    font-size: 12px;
+    color: #333;
+    height: 40px;
+    display: flex;
+    width: 580px;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    align-items: center;   
+}
+
+.song_list li:nth-child(odd) {
+    background-color: rgba(240, 240, 240, 0.3);
+}
+
+.song_list li a {
+    display: block;
+    width: 17px;
+    height: 17px;
+    background-image: url(images/play.png);
+    background-size: 100%;
+    margin-right: 5px;
+    box-sizing: border-box;
+}
+
+.song_list li b {
+    font-weight: normal;
+    width: 116px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.song_list li span i {
+    cursor: pointer;
+    background: url(images/MV.png) no-repeat center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: 45% 45%;
+}
+
+.left_line {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.player_con {
+    width: 400px;
+    height: 435px;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+}
+
+.disc {
+    position: absolute;
+    left: 73px;
+    top: 60px;
+    width: 254px;
+    height: 255px;
+    z-index: 9;
+}
+
+.cover {
+    position: absolute;
+    left: 125px;
+    top: 112px;
+    width: 150px;
+    height: 150px;
+    z-index: 8;
+    border-radius: 75px;
+}
+
+.comment_wrapper {
+    width: 180px;
+    height: 435px;
+    position: absolute;
+    left: 600px;
+    top: 0px;
+    padding: 25px 10px;
+}
+
+.comment_wrapper .comment_list {
+    overflow: auto;
+}
+
+.comment_wrapper .comment_list::-webkit-scrollbar {
+    display: none;
+}
+
+.comment_list {
+    position: absolute;
+    width: 180px;
+    height: 395px;
+    top: 40px;
+}
+
+.comment_wrapper dl {
+    padding-left: 55px;
+    padding-top: 10px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.comment_wrapper dt img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.comment_wrapper dt {
+    position: absolute;
+    left: 4px;
+    top: 10px;
+}
+
+.comment_wrapper dd {
+    font-size: 12px;
+}
+
+.comment_wrapper .name {
+    font-weight: bold;
+    color: #333;
+    padding-top: 5px;
+}
+
+.comment_wrapper .detail {
+    color: #666;
+    margin-top: 5px;
+    line-height: 18px;
+} 
+
+.right_line {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.audio_con {
+    height: 50px;
+    background-color: #f1f3f4;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.myaudio {
+    width: 800px;
+    height: 40px;
+    margin-top: 5px;
+    outline: none;
+    background-color: #f1f3f4;
+}
+
+ /* 旋转动画 */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 旋转的类名 */
+.autoRotate {
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-play-state: paused;
+}
+
+/* 是否正在播放，播放中绑定playing类名从而启动旋转动画 */
+.player_con.playing .disc,
+.player_con.playing .cover {
+  animation-play-state: running;
+}
+
+/* 黑胶唱臂位置设置 */
+.play_bar {
+    position: absolute;
+    left: 200px;
+    top: -10px;
+    z-index: 10;
+    transform: rotate(-25deg);
+    transform-origin: 12px 12px;
+    transition: 1s;
+}
+
+/* 播放音乐，黑胶唱臂转回去 */
+.player_con.playing .play_bar {
+    transform: rotate(0);
+}
+ 
+.video_con video {
+    position: fixed;
+    width: 800px;
+    height: 546px;
+    left: 50%;
+    top: 50%;
+    margin-top: -273px;
+    transform: translateX(-50%);
+    z-index: 990;
+    outline: none;
+}
+
+/* 遮罩层 */
+.video_con .mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 980;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+  

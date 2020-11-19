@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heyyuan's player</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <!--播放器整体-->
+        <div class="play_wrap" id="player">
+            <!--播放器搜索栏-->
+            <div class="search_bar">
+                <img src="images/music.png" alt="" />
+                <input type="text" autocomplete="off" v-model="query" @keyup.enter="searchMusic">
+            </div>
+            <!--播放器信息区域-->
+            <div class="center_con"> 
+                <!--左侧曲目信息-->
+                <div class="song_wrapper">
+                    
+                    <ul class="song_list">
+                        <li v-for="item in musicList"><a href="javascript:;" @click="playMusic(item.id)"></a> 
+                            <b>{{ item.name }}</b> 
+                            <span>
+                                <i v-if='item.mvid != 0' @click='playMv(item.mvid)'></i>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <img src="images/line.png" class="left_line" alt="">
+                </div>
+                <!--专辑封面区域-->
+                <div class="player_con" :class="{playing:isPlaying}">
+                    <img src="images/player_bar.png" alt="" class="play_bar">
+                    <!--黑胶封面-->
+                    <img src="images/disc.png" alt="" class="disc autoRotate">
+                    <img :src="picSrc" alt="" class="cover autoRotate"> 
+                </div>
+                <!--歌曲评论区域-->
+                <div class="comment_wrapper">
+                    <h5>评论</h5>
+                    <div class="comment_list">
+                        
+                        <dl v-for="item in commentList">
+                            <dt>
+                                <img :src="item.user.avatarUrl" alt="">
+                            </dt>
+                            <dd class="name">{{ item.user.nickname }}</dd>
+                            <dd class="detail">{{ item.content }}</dd>
+                        </dl>
+
+                    </div>
+                    <img src="images/line.png" class="right_line">
+                </div>
+            </div>
+            <div class="audio_con">
+                <audio @play='play' @pause='pause' ref='audio' :src="musicSrc" controls autoplay loop class="myaudio"></audio>
+              </div>
+            <div class="video_con" v-show='isShow' style="display: none;">
+                <video :src='mvSrc' controls="controls"></video>
+                <div class="mask" @click='hiding' ></div>
+            </div>
+        </div>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--导入axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="music.js"></script>
+</body>
+</html>
